@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  pessoa:
+    container_name: pessoa
+    depends_on:
+      - mysql
+    build: .
+    networks:
+      - bubble
+  mysql:
+    container_name: mysql
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_DATABASE=pessoa_crud
+    networks:
+      - bubble
+networks:
+  bubble:
+    external: true
