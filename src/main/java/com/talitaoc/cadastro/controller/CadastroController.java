@@ -40,7 +40,7 @@ public class CadastroController {
     }
 
     @DeleteMapping
-    public void deletePessoaModel(@RequestParam ("id") Integer id,@RequestParam ("cpf") Long cpf) throws UserNotFoundException {
+    public void deletePessoaModel(@RequestParam (value = "id", required = false) Integer id,@RequestParam (value = "cpf", required = false) Long cpf) throws UserNotFoundException {
         pessoaService.delete(pessoaService.getPessoa(id,cpf));
 
     }
